@@ -29,19 +29,19 @@ pipeline {
 					]
                 ])
 
-				checkout([
-					$class: 'GitSCM',
-					branches: [
-						[name: "*/${env.TOOLS_BRANCH}"]
-					],
-					extensions: [
-						[$class: 'WipeWorkspace'],
-						[$class: 'RelativeTargetDirectory', relativeTargetDir: "${env.WORKSPACE}@tools"]
-					],
-					userRemoteConfigs: [
-						[credentialsId: env.GIT_CREDENTIAL_ID, url: env.TOOLS_REPOSITORY]
-					]
-				])
+				// checkout([
+				// 	$class: 'GitSCM',
+				// 	branches: [
+				// 		[name: "*/${env.TOOLS_BRANCH}"]
+				// 	],
+				// 	extensions: [
+				// 		[$class: 'WipeWorkspace'],
+				// 		[$class: 'RelativeTargetDirectory', relativeTargetDir: "${env.WORKSPACE}@tools"]
+				// 	],
+				// 	userRemoteConfigs: [
+				// 		[credentialsId: env.GIT_CREDENTIAL_ID, url: env.TOOLS_REPOSITORY]
+				// 	]
+				// ])
 
 				script {
 					if (!env.PIPELINE_VERSION) {
